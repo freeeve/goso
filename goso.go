@@ -22,9 +22,7 @@ func main() {
 	flag.Parse()
 
 	go robustly.Run(func() { loop() })
-	for {
-		time.Sleep(1 * time.Hour)
-	}
+	select {}
 }
 
 func loop() {
