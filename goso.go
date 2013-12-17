@@ -21,7 +21,10 @@ var query *string = flag.String("tags", "go", "SO query")
 func main() {
 	flag.Parse()
 
-	go robustly.Run(func() { loop() })
+	go robustly.Run(func() {
+		loop()
+		time.Sleep(5 * time.Minute)
+	})
 	select {}
 }
 
