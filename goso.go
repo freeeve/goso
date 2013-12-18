@@ -24,8 +24,8 @@ func main() {
 	robustly.RunWithOptions(loop, robustly.RunOptions{
 		RateLimit:  1.0,
 		Timeout:    1 * time.Second,
-		PrintStack: false,
-		Delay:      5 * time.Minue,
+		PrintStack: true,
+		Delay:      5 * time.Second,
 	})
 }
 
