@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/VividCortex/robustly"
+	"github.com/wfreeman/robustly"
 )
 
 var sleepTime int64 = 5
@@ -21,11 +21,12 @@ var query *string = flag.String("tags", "go", "SO query")
 func main() {
 	flag.Parse()
 
-	go robustly.Run(func() {
-		loop()
-		time.Sleep(5 * time.Minute)
+	robustly.RunWithOptions(loop, robustly.RunOptions{
+		RateLimit:  1.0,
+		Timeout:    1 * time.Second,
+		PrintStack: false,
+		Delay:      5 * time.Minue,
 	})
-	select {}
 }
 
 func loop() {
