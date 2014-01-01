@@ -21,11 +21,11 @@ var query *string = flag.String("tags", "go", "SO query")
 func main() {
 	flag.Parse()
 
-	robustly.RunWithOptions(loop, robustly.RunOptions{
+	robustly.Run(loop, &robustly.RunOptions{
 		RateLimit:  1.0,
 		Timeout:    1 * time.Second,
 		PrintStack: true,
-		Delay:      5 * time.Second,
+		RetryDelay: 5 * time.Second,
 	})
 }
 
