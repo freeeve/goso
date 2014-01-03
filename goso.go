@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/wfreeman/robustly"
+	"github.com/VividCortex/robustly"
 )
 
 var sleepTime int64 = 5
